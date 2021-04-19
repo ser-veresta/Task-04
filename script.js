@@ -36,7 +36,9 @@ countryReq.onload = function(){
 
     //Printing the countries which use US Dollars as currency.
     let usDollors = (data) => {
-        let countriesUSDollorCurrency = data.filter(item => item.currencies[0].name == "United States dollar");
+        let countriesUSDollorCurrency = data.filter(item => {
+            for (let x of item.currencies) return (x.name == "United States dollar");
+        });
         countriesUSDollorCurrency.forEach(item => console.log(item.name));
     }
 
